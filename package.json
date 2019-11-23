@@ -1,0 +1,25 @@
+{
+  "name": "react-native-reanimated-collapsible",
+  "version": "1.0.3",
+  "private": false,
+  "keywords": [
+    "react-native",
+    "collapsible",
+    "accordion",
+    "react-native-reanimated",
+    "mobile",
+    "ios",
+    "android"
+  ],
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^0.0.5",
+    "eslint": "^6.6.0",
+    "react": "16.9.0",
+    "react-native": "0.61.4",
+    "react-native-reanimated": "^1.4.0"
+  },
+  "description": "Animated collapsible component for React Native using the native thread. Inspired by react-native-collapsible",
+  "main": "Accordion.js",
+  "author": "salamancajr",
+  "license": "ISC"
+}
