@@ -1,5 +1,5 @@
 import React from 'react';
-import AccordionContent from './Accordion';
+import Accordion from 'react-native-reanimated-collapsible';
 import {
   Image,
   View,

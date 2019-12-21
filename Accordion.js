@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useReducer } from 'react';
 import Animated, { Easing } from 'react-native-reanimated';
+
 const {
   Value,
   block,
@@ -13,53 +14,55 @@ const {
   and,
 } = Animated;
 
-const areEqual = (prevProps, nextProps) => {
-  if (prevProps.expand === nextProps.expand) {
-    return true;
-  } else {
-    return false;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'initialize':
+      return action.payload;
+    default:
+      state;
   }
 };
 
-const Accordion = ({
-  style,
-  children,
-  expand,
-  initOpen = false,
-  duration = 300,
-}) => {
-  const [height, setHeight] = useState(new Value(0));
-  const [done, setDone] = useState(false);
+const Accordion = props => {
+  const { style, children, expand, initOpen = false, duration = 400 } = props;
+
+  const [reducerState, dispatch] = useReducer(reducer, {
+    height: new Value(0),
+    done: false,
+  });
+
+  const { height, done } = reducerState;
 
   let { animatedHeight, initOpenDone } = useMemo(
     () => ({
       animatedHeight: new Value(0),
       initOpenDone: new Value(0),
-      expand,
     }),
     [],
   );
 
   const clock = new Clock();
-  const state = {
-    position: animatedHeight,
-    finished: new Value(0),
-    time: new Value(0),
-    frameTime: new Value(0),
-  };
-  const config = {
-    toValue: height,
-    duration,
-    easing: Easing.linear,
-  };
 
-  useCode(() =>
-    block([
+  useCode(() => {
+    const state = {
+      position: animatedHeight,
+      finished: new Value(0),
+      time: new Value(0),
+      frameTime: new Value(0),
+    };
+    const config = {
+      toValue: height,
+      duration,
+      easing: Easing.linear,
+    };
+
+    return block([
       cond(and(eq(initOpen, 1), eq(initOpenDone, 0)), [
         set(animatedHeight, height),
         set(initOpenDone, 1),
       ]),
       cond(eq(expand, initOpen ? 0 : 1), [
+        set(config.toValue, height),
         startClock(clock),
         timing(clock, state, config),
       ]),
@@ -68,15 +71,20 @@ const Accordion = ({
         startClock(clock),
         timing(clock, state, config),
       ]),
-    ]),
-  );
+    ]);
+  }, [expand, done]);
 
   return (
     <Animated.View
       onLayout={e => {
         if (e.nativeEvent.layout.height && !done) {
-          setHeight(new Value(e.nativeEvent.layout.height));
-          setDone(true);
+          dispatch({
+            type: 'initialize',
+            payload: {
+              height: new Value(e.nativeEvent.layout.height),
+              done: true,
+            },
+          });
         }
       }}
       style={[
@@ -92,4 +100,4 @@ const Accordion = ({
   );
 };
 
-export default React.memo(Accordion, areEqual);
+export default Accordion;
