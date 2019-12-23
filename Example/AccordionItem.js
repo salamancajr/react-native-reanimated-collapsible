@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion from 'react-native-reanimated-collapsible';
+import AccordionContent from 'react-native-reanimated-collapsible';
 import {
   Image,
   View,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class Accordion extends React.Component {
+class AccordionItem extends React.Component {
   state = {
     title: 1,
     expand: false,
@@ -144,4 +144,4 @@ class Accordion extends React.Component {
   }
 }
 
-export default Accordion;
+export default AccordionItem;

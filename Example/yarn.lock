@@ -5227,10 +5227,10 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
-react-native-reanimated-collapsible@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated-collapsible/-/react-native-reanimated-collapsible-1.0.3.tgz#a8b2d08a77d1fca17b69bb9a9ba1b127ae17b480"
-  integrity sha512-dyhu3XjaW42Ric1g8orLtwa3u8lvSwBGaGZBqyxYrRIVn1veqjPTGEuh/OzXFoJGEpety/685DG5OXt9n5ljXQ==
+react-native-reanimated-collapsible@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated-collapsible/-/react-native-reanimated-collapsible-1.0.5.tgz#ec7eb40b5f744483043e88e2e490bc5562485d8a"
+  integrity sha512-/cG/IJAXHPTZyfZbFTKo0iUKbc976JD1qwYdRoN/PDRvCHe3eBTUqYcUadhISr7WRVy/vEv/j6n+nIo8PYHZWw==
 
 react-native-reanimated@^1.4.0:
   version "1.4.0"
