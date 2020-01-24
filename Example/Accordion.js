@@ -1,5 +1,6 @@
 import React, { useMemo, useReducer } from 'react';
 import Animated, { Easing } from 'react-native-reanimated';
+import PropTypes from 'prop-types';
 
 const {
   Value,
@@ -23,9 +24,13 @@ const reducer = (state, action) => {
   }
 };
 
-const Accordion = props => {
-  const { style, children, expand, initOpen = false, duration = 400 } = props;
-
+const Accordion = ({
+  style,
+  children,
+  expand,
+  initOpen = false,
+  duration = 400,
+}) => {
   const [reducerState, dispatch] = useReducer(reducer, {
     height: new Value(0),
     done: false,
@@ -98,6 +103,18 @@ const Accordion = props => {
       {children}
     </Animated.View>
   );
+};
+
+Accordion.propTypes = {
+  style: PropTypes.object,
+  children: PropTypes.node.isRequired,
+  expand: PropTypes.bool.isRequired,
+  initOpen: PropTypes.bool.isRequired,
+  duration: PropTypes.num.isRequired,
+};
+
+Accordion.defaultProps = {
+  style: {},
 };
 
 export default Accordion;
