@@ -24,7 +24,7 @@ const reducer = (state, action) => {
   }
 };
 
-const Accordion = ({
+const AccordionWrapper = ({
   style,
   children,
   expand,
@@ -105,16 +105,18 @@ const Accordion = ({
   );
 };
 
-Accordion.propTypes = {
+AccordionWrapper.propTypes = {
   style: PropTypes.object,
   children: PropTypes.node.isRequired,
   expand: PropTypes.bool.isRequired,
-  initOpen: PropTypes.bool.isRequired,
-  duration: PropTypes.num.isRequired,
+  initOpen: PropTypes.bool,
+  duration: PropTypes.number,
 };
 
-Accordion.defaultProps = {
+AccordionWrapper.defaultProps = {
   style: {},
+  initOpen: false,
+  duration: 400,
 };
 
-export default Accordion;
+export default AccordionWrapper;

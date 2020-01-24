@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AccordionContent from 'react-native-reanimated-collapsible';
+import AccordionContent from './AccordionWrapper';
 import {
   Image,
   View,

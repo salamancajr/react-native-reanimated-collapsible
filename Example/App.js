@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import AccordionItem from './AccordionItem';
+import AccordionItem from './src/AccordionContent';
 import { ScrollView, SafeAreaView } from 'react-native';
 
 export default class App extends React.Component {
